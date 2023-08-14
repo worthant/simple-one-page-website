@@ -1,4 +1,7 @@
 {
+    "name": "vendor/package-name",
+    "description": "Brief description of your project or library",
+    "license": "MIT",
     "require-dev": {
         "phpunit/phpunit": "^10.3"
     }
