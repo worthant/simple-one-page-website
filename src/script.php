@@ -1,5 +1,9 @@
 <?php
+
 session_start();
+
+require __DIR__ . '/AreaChecker.php';
+
 if (!isset($_SESSION['results'])) {
     $_SESSION['results'] = array();
 }
@@ -8,21 +12,7 @@ $x = $_POST['x'];
 $y = $_POST['y'];
 $r = $_POST['r'];
 
-function isInArea($x, $y, $r) {
-    if ($x >= 0 && $y >= 0) { // Check for circle in top-right quadrant
-        return ($x * $x + $y * $y) <= ($r * $r) / 4;
-    }
-    if ($x < 0 && $y >= 0) { // Check for square in top-left quadrant
-        return $x >= -$r && $y <= $r;
-    }
-    if ($x >= 0 && $y < 0) { // Check for triangle in bottom-right quadrant
-        return $y >= -$x && $x <= $r;
-    }
-    return false; // For bottom-left quadrant, always return false
-}
-
-
-$result = isInArea($x, $y, $r) ? "Hits the area" : "Does not hit the area";
+$result = AreaChecker::isInArea($x, $y, $r) ? "Hits the area" : "Does not hit the area";
 $currentTime = date('Y-m-d H:i:s');
 $executionTime = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
 
