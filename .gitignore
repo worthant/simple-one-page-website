@@ -1,3 +1,5 @@
+composer.phar
+/vendor/
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
