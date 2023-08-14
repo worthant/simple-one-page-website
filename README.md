@@ -1,4 +1,4 @@
-# Simple website ![Build Status](https://github.com/worthant/web-programming/actions/workflows/build/badge.svg) [![Russian](https://img.shields.io/badge/translation-RU-red)](./README_RU.md)
+# Simple website ![Build Status](https://github.com/worthant/web-programming/actions/workflows/php/badge.svg) [![Russian](https://img.shields.io/badge/translation-RU-red)](./README_RU.md)
 
 <details open>
    <summary><b>Table of Contents</b></summary>
