@@ -1,4 +1,29 @@
-# Simple website ![Build Status](https://github.com/worthant/simple-one-page-website/workflows/PHP%20Composer/badge.svg) [![Russian](https://img.shields.io/badge/translation-RU-red)](./README_RU.md)
+<p align="center">
+  <a href="https://ibb.co/Sv4F0Yq">
+    <picture>
+      <img src="https://i.ibb.co/nkNxfdh/html.png" height="110">
+    </picture>
+    <h1 align="center">Simple one page website</h1>
+  </a>
+</p>
+
+<p align="center">
+  <a aria-label="Last commit" href="https://github.com/worthant/simple-one-page-website/commits/main">
+    <img alt="" src="https://img.shields.io/github/last-commit/worthant/simple-one-page-website?style=for-the-badge&logo=git">
+  </a>
+  <a aria-label="Repo size" href="https://github.com/worthant/simple-one-page-website">
+    <img alt="" src="https://img.shields.io/github/repo-size/worthant/simple-one-page-website?style=for-the-badge&logo=github">
+  </a>
+  <a aria-label="Translation" href="./README_RU.md">
+    <img alt="" src="https://img.shields.io/badge/translation-RU-red?style=for-the-badge">
+  </a>
+  <a aria-label="Build Status" href="https://github.com/worthant/simple-one-page-website/actions">
+    <img alt="" src="https://img.shields.io/github/actions/workflow/status/worthant/simple-one-page-website/php.yaml?branch=main&style=for-the-badge&logo=github-actions">
+  </a>
+  <a aria-label="License" href="./LICENSE">
+    <img alt="" src="https://img.shields.io/github/license/worthant/simple-one-page-website?style=for-the-badge">
+  </a>
+</p>
 
 <details open>
    <summary><b>Table of Contents</b></summary>
@@ -21,7 +46,10 @@
 
 <a id="requirements"></a>
 <details>  
-   <summary><h2><b> Requirements for variant 1 </b></h2></summary>
+   <summary><h2><b> Requirements for variant 1204 </b></h2></summary>
+
+   |![изображение](https://github.com/worthant/simple-one-page-website/assets/43885024/4e3bc97e-313b-4592-9476-2a8cd112fe10)|
+   |:-:|
    
    1. [ ] 1. Develop a `PHP script` that determines whether a point on the coordinate plane falls within a specified area.
    
