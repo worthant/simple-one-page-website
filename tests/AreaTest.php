@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require __DIR__ . '/../src/AreaChecker.php';
+require __DIR__ . '/../server/AreaChecker.php';
 
 class AreaTest extends TestCase {
 
