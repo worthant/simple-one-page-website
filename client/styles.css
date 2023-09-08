@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+:root {
+    background-color: #181a1b;
+    font-family: "Outfit", Gothic A1, Arial, sans-serif;
+    text-align: center;
+    font-weight: normal;
+    color-scheme: dark;
+}
+header p {
+    font-family: fantasy;
+    color: blue;
+    font-size: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 10%;
+}
+
+div {
+    margin: 2% 0;
+}
+
+input[type="text"] {
+    width: 50%;
+    margin-left: 2%;
+}

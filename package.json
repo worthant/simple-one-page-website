@@ -1,5 +1,18 @@
 {
   "dependencies": {
-    "composer": "^4.1.0"
+    "composer": "^4.1.0",
+    "php": "^1.0.2"
+  },
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "name": "simple-one-page-website",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "git@github.com:worthant/simple-one-page-website.git",
+  "author": "worthant <b_dvorkin@niuitmo.ru>",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
   }
 }
