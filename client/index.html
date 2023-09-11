@@ -1,93 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+
+    <meta name="author" content="Дворкин Борис Александрович">
+    <meta name="description" content="Веб-программирование: Лабораторная работа №1.">
+    <meta name="keywords"
+        content="ITMO, ИТМО, ЛИТМО, web lab, веб, ПИиКТ, ВТ, Лабораторная работа, Веб-программирование" />
+
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <title>Web programming laboratory work no. 1</title>
+
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/palatino');
+
+        :root {
+            /* font-family: "Outfit", Gothic A1, fantasy, Arial, sans-serif; */
+            font-family: "Papyrus", "fantasy";
+            color-scheme: dark;
+            background-image: url('images/bg.png');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        header {
+            height: 43px;
+            border-radius: 10px;
+
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+
+            box-shadow: 0px 0px 2px white;
+            backdrop-filter: blur(10px);
+        }
+
+        .info {
+            font-size: 15px;
+            font-weight: 100;
+            text-align: center;
+        }
+
+        .icon {
+            display: flex;
+            height: 30px;
+            margin-left: 6px;
+            justify-self: start;
+        }
+
+        #date-time {
+            margin-right: 8px;
+            font-size: 12px;
+            justify-self: end;
+        }
+
+
+        .container {
+            display: grid;
+            grid-template-columns: 10% 1fr 1fr 10%;
+            grid-template-rows: 5% 50% 80%;
+            gap: 2%;
+        }
+
+        .graph,
+        .form {
+            border-radius: 10px;
+            border: 1px solid white;
+            padding: 5vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(7px);
+            box-shadow: 0px 0px 3px white;
+
+        }
+
+        .graph {
+            grid-column: 1 / 3;
+            grid-row: 2 / 4;
+        }
+
+        .form {
+            grid-column: 3 / 5;
+            grid-row: 2 / 4;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1em;
+            gap: 15px;
+        }
+
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            justify-content: center;
+        }
+
+
+        input[type="text"],
+        select {
+            padding: 0.5em;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+
+        .check-btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 3em;
+        }
+
+        input[type="submit"] {
+            padding: 0.5em 1em;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            border: 2px solid #57a8ff;
+        }
+
+        .table {
+            grid-column: 1 / 5;
+            grid-row: 4 / 5;
+
+            flex-direction: row;
+            justify-content: center;
+            backdrop-filter: blur(7px);
+            box-shadow: 0px 0px 3px white;
+            border-radius: 20px 20px 0 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 10px;
+        }
+
+        #resultTable tr th:first-child {
+            border-radius: 20px 0 0 0;
+            
+        }
+
+        #resultTable tr th:last-child {
+            border-radius: 0 10px 0 0;
+            
+        }
+
+        #resultTable tr th:not(:first-child):not(:last-child) {
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+        }
+
+    </style>
 </head>
+
 <body>
     <header>
-        <p>Boris Dvorkin - Group P3131 - Variant 1</p>
+        <div class="githubIcon">
+            <a href="https://github.com/worthant">
+                <img src="images/github.png" class="icon">
+            </a>
+        </div>
+        <h1 class="info">var 1204 | Dvorkin Boris Alexandrovich | P3131</h1>
+        <div id="date-time">
+            <span id="date"></span>, <span id="time"></span>
+        </div>
     </header>
-    <main>
+
+    <main class="container">
         <div class="graph">
             <svg height="300" width="300" xmlns="http://www.w3.org/2000/svg">
 
                 <!-- Оси со стрелками -->
-                <line stroke="white" x1="0" x2="300" y1="150" y2="150"/>
-                <line stroke="white" x1="150" x2="150" y1="0" y2="300"/>
-                <polygon fill="white" points="150,0 144,15 156,15" stroke="white"/>
-                <polygon fill="white" points="300,150 285,156 285,144" stroke="white"/>
-    
-                <!-- Засечки    -->
-                <line stroke="white" x1="200" x2="200" y1="155" y2="145"/>
-                <line stroke="white" x1="250" x2="250" y1="155" y2="145"/>
-    
-                <line stroke="white" x1="50" x2="50" y1="155" y2="145"/>
-                <line stroke="white" x1="100" x2="100" y1="155" y2="145"/>
-    
-                <line stroke="white" x1="145" x2="155" y1="100" y2="100"/>
-                <line stroke="white" x1="145" x2="155" y1="50" y2="50"/>
-    
-                <line stroke="white" x1="145" x2="155" y1="200" y2="200"/>
-                <line stroke="white" x1="145" x2="155" y1="250" y2="250"/>
-    
+                <line stroke="gray" x1="0" x2="300" y1="150" y2="150" />
+                <line stroke="gray" x1="150" x2="150" y1="0" y2="300" />
+                <polygon fill="white" points="150,0 144,15 156,15" stroke="white" />
+                <polygon fill="white" points="300,150 285,156 285,144" stroke="white" />
+
+                <!-- Засечки -->
+                <line stroke="gray" x1="200" x2="200" y1="155" y2="145" />
+                <line stroke="gray" x1="250" x2="250" y1="155" y2="145" />
+
+                <line stroke="gray" x1="50" x2="50" y1="155" y2="145" />
+                <line stroke="gray" x1="100" x2="100" y1="155" y2="145" />
+
+                <line stroke="gray" x1="145" x2="155" y1="100" y2="100" />
+                <line stroke="gray" x1="145" x2="155" y1="50" y2="50" />
+
+                <line stroke="gray" x1="145" x2="155" y1="200" y2="200" />
+                <line stroke="gray" x1="145" x2="155" y1="250" y2="250" />
+
                 <!-- Подписи к засечкам    -->
                 <text fill="white" x="195" y="140">R/2</text>
                 <text fill="white" x="248" y="140">R</text>
-    
+
                 <text fill="white" x="40" y="140">-R</text>
                 <text fill="white" x="90" y="140">-R/2</text>
-    
+
                 <text fill="white" x="160" y="105">R/2</text>
                 <text fill="white" x="160" y="55">R</text>
-    
+
                 <text fill="white" x="160" y="205">-R/2</text>
                 <text fill="white" x="160" y="255">-R</text>
-    
+
                 <text fill="white" x="160" y="10">Y</text>
                 <text fill="white" x="290" y="140">X</text>
-    
-                <!-- Первая фигура: прямоугольник (слева внизу) -->
-                <rect x="100" y="150" width="50" height="100" fill="yellow" fill-opacity="0.3" stroke="yellow"></rect>
 
-                <!-- first figure triangle -->
-                <polygon fill="blue"
-                         fill-opacity="0.3"
-                         points="150,50 150,150 250,150"
-                         stroke="blue"></polygon>
-    
-                <!-- third figure circle-->
-                <path d="M 100 150 A 50 50, 90, 0, 0, 150 200 L 150 150 Z"
-                      fill="green"
-                      fill-opacity="0.3"
-                      stroke="green"/>
+                <!-- Прямоугольник (слева внизу) -->
+                <rect x="100" y="150" width="50" height="100" fill="#FFFF00" fill-opacity="0.1" stroke="#FFFF00" />
+
+                <!-- Треугольник (справа снизу) -->
+                <polygon fill="#0000FF" fill-opacity="0.1" points="150,250 150,150 200,150" stroke="#0000FF" />
+
+                <!-- Полукруг (слева сверху) -->
+                <path d="M 100 150 A 50 50, 0, 0, 1, 150 100 L 150 150 Z" fill="green" fill-opacity="0.1"
+                    stroke="#39FF14" />
+
+                <!-- Центр оси координат -->
                 <circle cx="150" cy="150" id="target-dot" r="0" stroke="white" fill="white"></circle>
             </svg>
         </div>
 
         <div class="form">
-            <form action="script.php" method="post" onsubmit="return validateForm()">
-                <div>
-                    <label for="x">X:</label>
-                    <input type="text" id="x" name="x">
+            <form action="script.php" method="get" onsubmit="return validateForm()">
+                <div class="input-group">
+                    <p>X:</p>
+                    <div id="x" class="radio-group">
+                        <label><input type="radio" name="x" value="-3">-3</label>
+                        <label><input type="radio" name="x" value="-2">-2</label>
+                        <label><input type="radio" name="x" value="-1">-1</label>
+                        <label><input type="radio" name="x" value="0">0</label>
+                        <label><input type="radio" name="x" value="1">1</label>
+                        <label><input type="radio" name="x" value="2">2</label>
+                        <label><input type="radio" name="x" value="3">3</label>
+                        <label><input type="radio" name="x" value="4">4</label>
+                        <label><input type="radio" name="x" value="5">5</label>
+                    </div>
                 </div>
-                <div>
+                <div class="input-group">
                     <label for="y">Y:</label>
                     <input type="text" id="y" name="y">
                 </div>
-                <div>
+                <div class="input-group">
                     <label for="r">R:</label>
-                    <input type="text" id="r" name="r">
+                    <select id="r" name="r">
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                        <option value="3">3</option>
+                    </select>
                 </div>
-                <div>
+                <div class="check-btn">
                     <input type="submit" value="Check">
                 </div>
             </form>
         </div>
+
+        <div class="table">
+            <table id="resultTable">
+                <thead>
+                  <tr>
+                    <th>x</th>
+                    <th>y</th>
+                    <th>r</th>
+                    <th>target hit or not</th>
+                    <th>time and date of the request</th>
+                    <th>duration of script.php running</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- The rows will be populated here by JavaScript -->
+                </tbody>
+              </table>     
+        </div>
     </main>
+
+    <audio id="background-music" loop>
+        <source src="nostalgic.mp3" type="audio/mp3">
+    </audio>
+    <script src="script.js"></script>
 </body>
+
 </html>

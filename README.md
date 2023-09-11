@@ -8,9 +8,6 @@
 </p>
 
 <p align="center">
-  <a aria-label="Last commit" href="https://github.com/worthant/simple-one-page-website/commits/main">
-    <img alt="" src="https://img.shields.io/github/last-commit/worthant/simple-one-page-website?style=for-the-badge&logo=git">
-  </a>
   <a aria-label="Repo size" href="https://github.com/worthant/simple-one-page-website">
     <img alt="" src="https://img.shields.io/github/repo-size/worthant/simple-one-page-website?style=for-the-badge&logo=github">
   </a>
@@ -67,8 +64,8 @@
    
        ```python
        •  `Block layout` should be used for positioning text and graphic elements.
-       •  Form data should be sent for processing via a `POST request`.
-       •  Stylesheets should be located in separate files.
+       •  Form data should be sent for processing via a `GET request`.
+       •  Stylesheets should be located in html file (<styles>).
        •  The HTML page should have a "header" containing:
           ├ student's full name
           ├ group number

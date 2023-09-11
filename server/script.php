@@ -1,51 +1,68 @@
 <?php
 
-session_start();
+require __DIR__ . "/CoordinatesValidator.php";
+require __DIR__ . "/AreaChecker.php";
 
-require __DIR__ . '/AreaChecker.php';
+@session_start();
 
-if (!isset($_SESSION['results'])) {
-    $_SESSION['results'] = array();
+if (!isset($_SESSION["results"])) {
+    $_SESSION["results"] = array();
 }
 
-$x = $_POST['x'];
-$y = $_POST['y'];
-$r = $_POST['r'];
-
-$result = AreaChecker::isInArea($x, $y, $r) ? "Hits the area" : "Does not hit the area";
-$currentTime = date('Y-m-d H:i:s');
-$executionTime = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
-
-$newResult = array(
-    'x' => $x,
-    'y' => $y,
-    'r' => $r,
-    'result' => $result,
-    'time' => $currentTime,
-    'executionTime' => $executionTime
-);
-
-array_push($_SESSION['results'], $newResult);
-
-echo "<table border='1'>
-<tr>
-    <th>X</th>
-    <th>Y</th>
-    <th>R</th>
-    <th>Result</th>
-    <th>Time</th>
-    <th>Execution Time</th>
-</tr>";
-
-foreach ($_SESSION['results'] as $resultRow) {
-    echo "<tr>";
-    echo "<td>" . $resultRow['x'] . "</td>";
-    echo "<td>" . $resultRow['y'] . "</td>";
-    echo "<td>" . $resultRow['r'] . "</td>";
-    echo "<td>" . $resultRow['result'] . "</td>";
-    echo "<td>" . $resultRow['time'] . "</td>";
-    echo "<td>" . $resultRow['executionTime'] . "</td>";
-    echo "</tr>";
+if ($_SERVER["REQUEST_METHOD"] !== "GET") {
+    http_response_code(405);
+    return;
 }
-echo "</table>";
-?>
+
+date_default_timezone_set($_GET["timezone"]);
+
+$x = (float) $_GET["x"];
+$y = (float) $_GET["y"];
+$r = (float) $_GET["r"];
+
+$validator = new CoordinatesValidator($x, $y, $r);
+if ($validator->checkData()) {
+    $isInArea = AreaChecker::isInArea($x, $y, $r);
+    $coordsStatus = $isInArea
+        ? "<span class='success'>Попал</span>"
+        : "<span class='fail'>Промазал</span>";
+
+    $currentTime = date('Y-m-d H:i:s');
+    $benchmarkTime = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
+
+    $newResult = array(
+        "x" => $x,
+        "y" => $y,
+        "r" => $r,
+        "coordsStatus" => $coordsStatus,
+        "currentTime" => $currentTime,
+        "benchmarkTime" => $benchmarkTime
+    );
+
+    array_push($_SESSION["results"], $newResult);
+
+    echo "<table id='outputTable'>
+        <tr>
+            <th>x</th>
+            <th>y</th>
+            <th>r</th>
+            <th>Точка входит в ОДЗ</th>
+            <th>Текущее время</th>
+            <th>Время работы скрипта</th>
+        </tr>";
+
+    foreach (array_reverse($_SESSION["results"]) as $tableRow) {
+        echo "<tr>";
+        echo "<td>" . $tableRow["x"] . "</td>";
+        echo "<td>" . $tableRow["y"] . "</td>";
+        echo "<td>" . $tableRow["r"] . "</td>";
+        echo "<td>" . $tableRow["coordsStatus"] . "</td>";
+        echo "<td>" . $tableRow["currentTime"] . "</td>";
+        echo "<td>" . $tableRow["benchmarkTime"] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    http_response_code(422);
+    return;
+}
