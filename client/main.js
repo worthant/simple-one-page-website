@@ -24,8 +24,8 @@ window.onload = function () {
     document.getElementById("output").innerHTML = localStorage.getItem("session");
 }
 
-const mainForm = document.querySelector('#input-form');
-mainForm.addEventListener('submit', function (e) {
+const mainForm = document.querySelector('input[value="Check"]');
+mainForm.addEventListener('click', function (e) {
     // default action is to send the form data to the server and reload the page
     // by calling .preventDefault() i am stopping the browser from doing this, 
     // which allows me to handle the form submission programmatically in your JavaScript code instead.
@@ -41,7 +41,7 @@ mainForm.addEventListener('submit', function (e) {
         const rVal = parseFloat(rElement.value);
         console.log(`X: ${xVal}, Y: ${yVal}, R: ${rVal}`);
 
-        const validator = new inputValidator();
+        let validator = new inputValidator();
         validator.validate(xVal, yVal, rVal);
 
         if (validator.getResponseCode() === 1) {
