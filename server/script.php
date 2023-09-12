@@ -11,21 +11,22 @@ if (!isset($_SESSION["results"])) {
 
 if ($_SERVER["REQUEST_METHOD"] !== "GET") {
     http_response_code(405);
+    echo 'Incorrect, try again) Only GET method accepted.';
     return;
 }
 
 date_default_timezone_set($_GET["timezone"]);
 
-$x = (float) $_GET["x"];
-$y = (float) $_GET["y"];
-$r = (float) $_GET["r"];
+$x = $_GET['xVal'];
+$y = $_GET['yVal'];
+$r = $_GET['rVal'];
 
 $validator = new CoordinatesValidator($x, $y, $r);
 if ($validator->checkData()) {
     $isInArea = AreaChecker::isInArea($x, $y, $r);
     $coordsStatus = $isInArea
-        ? "<span class='success'>Попал</span>"
-        : "<span class='fail'>Промазал</span>";
+        ? "<span class='result-cell-in'>Hit</span>"
+        : "<span class='result-cell-out'>Didn't hit</span>";
 
     $currentTime = date('Y-m-d H:i:s');
     $benchmarkTime = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
@@ -41,16 +42,6 @@ if ($validator->checkData()) {
 
     array_push($_SESSION["results"], $newResult);
 
-    echo "<table id='outputTable'>
-        <tr>
-            <th>x</th>
-            <th>y</th>
-            <th>r</th>
-            <th>Точка входит в ОДЗ</th>
-            <th>Текущее время</th>
-            <th>Время работы скрипта</th>
-        </tr>";
-
     foreach (array_reverse($_SESSION["results"]) as $tableRow) {
         echo "<tr>";
         echo "<td>" . $tableRow["x"] . "</td>";
@@ -61,8 +52,8 @@ if ($validator->checkData()) {
         echo "<td>" . $tableRow["benchmarkTime"] . "</td>";
         echo "</tr>";
     }
-    echo "</table>";
 } else {
     http_response_code(422);
+    echo 'Invalid data, try again :)';
     return;
 }

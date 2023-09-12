@@ -34,8 +34,12 @@
 
 ## 7. Клиентские сценарии. Особенности, сферы применения. Язык JavaScript.
 
-`Клиент всегда прав`
+#### DOMContentLoaded vs window.onload
 
+- `DomContentLoaded` fires as soon as the DOM is `fully constructed``, but before all assets are completely loaded (like images).
+- Hence, it executes `earlier` than `window.onload`.
+- `window.onload` waits for all assets to be fully loaded, including images, stylesheets, and other media files.
+- Executes later, when the page is completely ready.
 ## 8. Версии ECMAScript, новые возможности ES6 и ES7.
 
 `Возможностей нет, скипаем`

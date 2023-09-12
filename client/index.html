@@ -13,6 +13,7 @@
 
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Web programming laboratory work no. 1</title>
 
     <style>
@@ -62,9 +63,10 @@
         .container {
             display: grid;
             grid-template-columns: 10% 1fr 1fr 10%;
-            grid-template-rows: 5% 50% 80%;
-            gap: 2%;
+            grid-template-rows: min-content minmax(0, 1fr);
+            gap: 20px;
         }
+
 
         .graph,
         .form {
@@ -78,6 +80,7 @@
             backdrop-filter: blur(7px);
             box-shadow: 0px 0px 3px white;
 
+            max-height: 700px;
         }
 
         .graph {
@@ -106,10 +109,13 @@
             justify-content: center;
         }
 
+        input {
+            padding: 1em;
+        }
 
         input[type="text"],
         select {
-            padding: 0.5em;
+            padding: 0.5em;  /* каскадирование */
             border-radius: 4px;
             border: 1px solid #ccc;
         }
@@ -118,7 +124,7 @@
         .check-btn {
             display: flex;
             justify-content: center;
-            margin-top: 3em;
+            margin-top: 1em;
         }
 
         input[type="submit"] {
@@ -146,6 +152,11 @@
             border-radius: 20px 20px 0 0;
         }
 
+        /* .scrollable-body {
+            overflow-y: auto;
+            display: block;
+        } */
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -156,19 +167,37 @@
             padding: 10px;
         }
 
-        #resultTable tr th:first-child {
+        .resultTable tr th:first-child {
             border-radius: 20px 0 0 0;
             
         }
 
-        #resultTable tr th:last-child {
+        .resultTable tr th:last-child {
             border-radius: 0 10px 0 0;
             
         }
 
-        #resultTable tr th:not(:first-child):not(:last-child) {
+        .resultTable tr th:not(:first-child):not(:last-child) {
             border-left: 1px solid white;
             border-right: 1px solid white;
+        }
+
+        /* .result-cell-in, .result-cell-out{
+            text-align: center;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+        } */
+
+        .result-cell-in{
+            color: green;
+        }
+
+        .result-cell-out{
+            color: red;
+        }
+
+        thead {
+            border-bottom: 1px solid white;
         }
 
     </style>
@@ -177,7 +206,7 @@
 <body>
     <header>
         <div class="githubIcon">
-            <a href="https://github.com/worthant">
+            <a href="https://github.com/worthant/simple-one-page-website">
                 <img src="images/github.png" class="icon">
             </a>
         </div>
@@ -241,10 +270,14 @@
             </svg>
         </div>
 
-        <div class="form">
-            <form action="script.php" method="get" onsubmit="return validateForm()">
+        <div class="form" id="input-form">
+            <form>
                 <div class="input-group">
                     <p>X:</p>
+                    <form>
+                        <p> abcd </p>
+                        <button> submit </button>
+                    </form>
                     <div id="x" class="radio-group">
                         <label><input type="radio" name="x" value="-3">-3</label>
                         <label><input type="radio" name="x" value="-2">-2</label>
@@ -259,7 +292,7 @@
                 </div>
                 <div class="input-group">
                     <label for="y">Y:</label>
-                    <input type="text" id="y" name="y">
+                    <input type="text" id="y" name="y" maxlength="8">
                 </div>
                 <div class="input-group">
                     <label for="r">R:</label>
@@ -278,19 +311,27 @@
         </div>
 
         <div class="table">
-            <table id="resultTable">
+            <table class="resultTable">
                 <thead>
                   <tr>
                     <th>x</th>
                     <th>y</th>
                     <th>r</th>
                     <th>target hit or not</th>
-                    <th>time and date of the request</th>
+                    <th>current time</th>
                     <th>duration of script.php running</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <!-- The rows will be populated here by JavaScript -->
+                <tbody id="output">
+                  <!-- The rows here will be populated by JavaScript -->
+                  <tr>
+                    <td>Data for x</td>
+                    <td>Data for y</td>
+                    <td>Data for r</td>
+                    <td>Data for hit or not</td>
+                    <td>Data for current time</td>
+                    <td>Data for duration</td>
+                  </tr>
                 </tbody>
               </table>     
         </div>
@@ -299,7 +340,9 @@
     <audio id="background-music" loop>
         <source src="nostalgic.mp3" type="audio/mp3">
     </audio>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="text/javascript" src="addToTable.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 
 </html>

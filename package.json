@@ -4,7 +4,8 @@
     "php": "^1.0.2"
   },
   "scripts": {
-    "dev": "lite-server"
+    "dev": "lite-server",
+    "deploy": "./deploy.sh"
   },
   "name": "simple-one-page-website",
   "version": "1.0.0",
