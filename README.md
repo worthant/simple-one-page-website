@@ -46,6 +46,8 @@
 >
 > Dive in to explore how these technologies come together for a functional, user-friendly experience :computer:
 
+<a id="requirements"></a>
+
 ## Requirements for variant 1204
 
    |![изображение](https://github.com/worthant/simple-one-page-website/assets/43885024/4e3bc97e-313b-4592-9476-2a8cd112fe10)|
@@ -97,6 +99,8 @@
        •  Any incorrect values (letters in point coordinates / negative radius / ... ) should be blocked.
        ```
 
+<a id="preparation"></a>
+
 ## Preparation Topics
 
    ```python
@@ -115,6 +119,8 @@
    13. FastCGI - features of the technology, advantages and disadvantages relative to CGI.
    14. PHP language - syntax, data types, embedding in web pages, rules for handling HTTP requests. Features of the implementation of OOP principles in PHP.
    ```
+
+<a id="setup"></a>
 
 ## How to get everything working?
 
@@ -153,13 +159,17 @@
 
    7. Change `deploy.sh` for your needs and deploy changes to server using `yarn deploy`
 
+<a id="manual"></a>
+
 ## User Manual
 
    1. Fill in the form fields on the main page: enter the point coordinates and radius
    2. Click the "Check" button to send the data for processing by the PHP script
    3. The processing results will be displayed in the table on the main page
 
-## Theoretical materials </b></h2></summary>
+<a id="theory"></a>
+
+## Theoretical materials
 
    1. **URI** - **URL** - **URN** : <https://wiki.merionet.ru/articles/url-i-uri-v-chem-razlichie/>
    2. **Web docs 1** : <https://www.w3schools.com/css/css3_borders.asp>
