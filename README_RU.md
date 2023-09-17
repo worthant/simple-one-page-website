@@ -11,8 +11,8 @@
   <a aria-label="Размер репозитория" href="https://github.com/worthant/simple-one-page-website">
     <img alt="" src="https://img.shields.io/github/repo-size/worthant/simple-one-page-website?style=for-the-badge&logo=github">
   </a>
-  <a aria-label="Английская версия" href="./README_RU.md">
-    <img alt="" src="https://img.shields.io/badge/translation-RU-red?style=for-the-badge">
+  <a aria-label="Английская версия" href="./README.md">
+    <img alt="" src="https://img.shields.io/badge/translation-EU-red?style=for-the-badge">
   </a>
   <a aria-label="Сборка" href="https://github.com/worthant/simple-one-page-website/actions">
     <img alt="" src="https://img.shields.io/github/actions/workflow/status/worthant/simple-one-page-website/php.yaml?branch=main&style=for-the-badge&logo=github-actions">
