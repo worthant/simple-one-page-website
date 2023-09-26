@@ -161,12 +161,14 @@
 2. Нажмите кнопку "Отправить", чтобы отправить данные на обработку PHP-скрипту
 3. Результаты обработки будут отображаться в таблице на главной странице
 
-## Теоретические материалы
+## Материалы
 
-1. **URI** - **URL** - **URN** : <https://wiki.merionet.ru/articles/url-i-uri-v-chem-razlichie/>
+1. **Отчёт по моей лабораторной** : [гугл диск](https://docs.google.com/document/d/1cnjDA5CiydwgdM9iV6ZE5V2yf7SVOAap/edit?usp=sharing&ouid=113751677932979310082&rtpof=true&sd=true)
 
-2. **Web docs 1** : <https://www.w3schools.com/css/css3_borders.asp>
+2. **URI** - **URL** - **URN** : <https://wiki.merionet.ru/articles/url-i-uri-v-chem-razlichie/>
 
-3. **Web docs 2** : <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th>
+3. **Web docs 1** : <https://www.w3schools.com/css/css3_borders.asp>
 
-4. **Достойный гайд на вопросы с se.ifmo** : [guide](https://docs.google.com/document/u/0/d/13eAoOwDXg1enr3eFeawcM76AAhufZljDA4XYcNYAyDg/mobilebasic)
+4. **Web docs 2** : <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th>
+
+5. **Достойный гайд на вопросы с se.ifmo** : [guide](https://docs.google.com/document/u/0/d/13eAoOwDXg1enr3eFeawcM76AAhufZljDA4XYcNYAyDg/mobilebasic)
