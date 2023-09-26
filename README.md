@@ -30,7 +30,7 @@
 - [Preparation Topics](#preparation)
 - [How to get everything working?](#setup)
 - [User Manual](#manual)
-- [Theoretical materials](#theory)
+- [Materials](#theory)
 
 </details>
 
@@ -169,8 +169,9 @@
 
 <a id="theory"></a>
 
-## Theoretical materials
+## Materials
 
+   1. **My laboratory work report** : [google drive](https://docs.google.com/document/d/1cnjDA5CiydwgdM9iV6ZE5V2yf7SVOAap/edit?usp=sharing&ouid=113751677932979310082&rtpof=true&sd=true)
    1. **URI** - **URL** - **URN** : <https://wiki.merionet.ru/articles/url-i-uri-v-chem-razlichie/>
    2. **Web docs 1** : <https://www.w3schools.com/css/css3_borders.asp>
    3. **Web docs 2** : <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th>
